@@ -20,3 +20,5 @@ Le serveur fonctionne
 * L'url /api/users/0 affiche "Not found"
 * Crée une route POST pour /api/users qui insérera un nouvel utilisateur dans la base de données
 * Crée une route DELETE pour le chemin /api/users/:id qui va supprimer un utilisateur dans la base de données
+* Créez une route PUT pour le chemin /api/users/:id : ta route modifiera un utilisateur dans la base de données
+
