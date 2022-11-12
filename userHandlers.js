@@ -61,46 +61,41 @@ const postUser = (req, res) => {
 
 };
 
-//route update Users 
-const updateUser = (req, res) => {
+//route Delete Users
 
+
+const deleteUser = (req, res) => {
   const id = parseInt(req.params.id);
-
-  const { firstname, lastname, email, city, language } = req.body;
-
 
   database
 
-    .query(
+  .query("delete from users where id = ?", [id])
 
-      "update users set firstname = ?, lastname = ?, email = ?, city = ?, language = ? where id = ?",
+  .then(([result]) => {
 
-      [firstname, lastname, email, city, language, id]
+    if (result.affectedRows === 0) {
 
-    )
+      res.status(404).send("Not Found");
 
-    .then(([result]) => {
+    } else {
 
-      if (result.affectedRows === 0) {
+      res.sendStatus(204);
 
-        res.status(404).send("Not Found");
+    }
 
-      } else {
+  })
 
-        res.sendStatus(204);
+  .catch((err) => {
 
-      }
+    console.error(err);
 
-    })
+    res.status(500).send("Error deleting user");
 
-    .catch((err) => {
-
-      console.error(err);
-
-      res.status(500).send("Error editing the user");
-
-    });
+  });
 
 };
 
-module.exports = { getUsers, getUserById, postUser, updateUser};
+
+
+module.exports = { getUsers, getUserById, postUser, deleteUser };
+
