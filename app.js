@@ -2,8 +2,9 @@ require("dotenv").config();
 
 const express = require("express");
 
-
 const app = express();
+
+
 
 
 app.use(express.json()); // add this line
@@ -16,6 +17,8 @@ const welcome = (req, res) => {
 
 app.get("/", welcome);
 
+// const { validateMovie, validateUser } = require("./validators.js");
+
 const movieHandlers = require("./movieHandlers");
 
 app.get("/api/movies", movieHandlers.getMovies);
@@ -24,11 +27,13 @@ app.post("/api/movies", movieHandlers.postMovie);
 app.put("/api/movies/:id", movieHandlers.updateMovie);
 
 const userHandlers = require("./userHandlers");
+
 app.get("/api/users", userHandlers.getUsers);
 app.get("/api/users/:id", userHandlers.getUserById);
 app.post("/api/users", userHandlers.postUser);
 app.put("/api/users", userHandlers.updateUser);
 app.delete("/api/users/:id", userHandlers.deleteUser);
+
 
 
 
