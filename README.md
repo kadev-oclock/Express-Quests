@@ -21,7 +21,7 @@ Le serveur fonctionne
 * Crée une route POST pour /api/users qui insérera un nouvel utilisateur dans la base de données
 * Crée une route DELETE pour le chemin /api/users/:id qui va supprimer un utilisateur dans la base de données
 * Créez une route PUT pour le chemin /api/users/:id : ta route modifiera un utilisateur dans la base de données
-*Ajoute deux filtres pour la route GET /api/users existant :
+* Ajoute deux filtres pour la route GET /api/users existant :
 
     si un paramètre language est fourni dans l'URL (?language=English), ne renvoie que les locuteurs de cette langue.
     si un paramètre city est fourni dans l'URL (?city=Paris), ne renvoie que les utilisateurs dont la ville correspond au paramètre.
